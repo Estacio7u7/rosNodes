@@ -28,3 +28,10 @@ rqt_graph
 ```
 
 <!-- This will open the graphic interface of ros. For an easier visualization stop the ROS serial arduino node and refresh the graphic. Keep the Debug marked.-->
+
+# Developed by: 
+- Luis Carlos Parra Camacho
+- Juan Andrés Alzate Ocampo
+- Andrés Fernando Rodríguez Bayona
+- Amy Alexandra Noriega Quintero
+- David Fernando Estacio Quiroz.
