@@ -38,7 +38,7 @@ This node begins the data reception from Arduino board, establishes the subscrib
 - **Int:** This one goes from 0 to 1023 and is the value that Arduino board provides from the ADC. In our circuit we used a simple potentiometer connected between 0 and 5v.
 - **Float:** This one goes from 0 to 5 with decimals that is the advantage of float numbers. Corresponds to another potentiometer connected in the same way that the previous one. 
 
-These values are sent to nodes B, C and D separately and simoultaneosly with a frequenzy of 1Hz.
+These values are sent to nodes B, C and D separately and simoultaneosly with a frequenzy of 0.1Hz.
 
 **Scripts B.py, C.py, D.py: The nodes B,C and D**
 This nodes processes the recepted values by aplying a simple fuzzy logic inside every node. The node B has only two values otherwise C and D, that has three. After fuzzyfication, they send a string with the level that those values belongs to in percentaje. As an example you would this this output in C or D node:
@@ -51,6 +51,7 @@ In the A node the output is simplier:
 ```
 LOW: 0% / HIGH: 100%
 ```
+This information is processed and sent to the next layer of nodes with a frequenzy of 1Hz
 
 **Scripts E.py, F.py, G.py: The nodes E,F and G**
 This nodes separates the string sent by the previous nodes layer an makes a decition tree to choose wich level actually the value corresponds to.To make it simple, we made that value goes directly for the segment that the biggest percentage belongs to and sent the first letter of its name.
@@ -62,9 +63,10 @@ You would see an output like this:
 ```
 M
 ```
+This information is processed and sent to the next layer of nodes with a frequenzy of 0,5Hz
 
 **Script H.py: The defuzzyficator node H**
-This node makes a decition tree that converts those three values in a only one that is being sent to the Arduino Board as a String.
+This node makes a decition tree that converts those three values in a only one that is being sent to the Arduino Board as a String every 5 seconds or with a frequenzy of 5Hz.
 
 **Arduino Scipt: The board as I/O interface**
 We connected two potenciometers as analog inputs and a button as digital input. To see the result we connected a difuse led that changes its brightness taking advantages of PWM pins. The script creates a node that sends a string to the A node with values processed from the connected pins.
