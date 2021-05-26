@@ -6,6 +6,8 @@ Structure of this practice
 
 Nodes are the hearth of working in ROS. Everything we can do in ROS mainly goes into a node. Here we have nine Nodes that receives, processes and sends information, with different frequencys and making a work with Arduino.
 
+![nodes](https://user-images.githubusercontent.com/82511885/119656417-4ad1db80-bdf0-11eb-9917-d532dfc4e4ba.jpeg)
+
 > this is a class exercise, not necessary to explain everything here. For more information every code is commented.
 
 Definitions
